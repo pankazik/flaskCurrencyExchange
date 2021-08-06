@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Currency exchange</title>
+</head>
+    <input type="number" form="postselection" name="from_multiple" value="1" min="1"/>
+<select name="from_currency" form="postselection">
+    <option value="1">polski złoty</option>
+    {% for option in data_to_form %}
+    <option value="{{ option['mid'] }}">{{ option['currency'] }}</option>
+    {% endfor %}
+</select>
+<select name="to_currency" form="postselection">
+    <option value="1">polski złoty</option>
+    {% for option in data_to_form %}
+    <option value="{{ option['mid'] }}">{{ option['currency'] }}</option>
+    {% endfor %}
+</select>
+<form method="post" id="postselection">
+    <input type="submit" value="Convert">
+</form>
+
+{{ from_multi }} {{ from_curr }} =  <input type="text" value="{{ value }}" disabled> {{ to_curr }}
+
+
+<footer>Based on NBP available at : {{ data_date }}</footer>
+</body>
+</html>
